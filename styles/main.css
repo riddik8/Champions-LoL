@@ -6,6 +6,7 @@
 }
 .elem{
 	margin: 10px 0 10px;
+	height: 120px;
 }
 .heroName{
 	font: bold 23px 'ARIAL BLACK';
@@ -21,4 +22,7 @@
 }
 .footer-copyright a:hover{
 	color: rgba(255,255,255,1) !important;
+}
+.heroes-list{
+	min-height: calc(100vh - 129px);
 }

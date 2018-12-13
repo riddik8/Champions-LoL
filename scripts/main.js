@@ -61,13 +61,55 @@ const heroList = [
 	}
 ];
 
-let a = '';
-let b = document.createElement('div');
-b.className = "row justify-content-between";
-heroList.forEach(el =>{
-	a+=`<div class="elem col-md-4 col-sm-6 d-flex"><img src="${ el.url }"><div class='d-flex flex-column'><span class="heroName align-items-start">${ el.heroName }</span><span class="align-items-end heroPosition">${el.heroPosition}</span></div></div>`;
+let valueEvent;
+
+const createListBlock = () => {
+	const listConteiner = document.createElement('div');
+	const listContent = generateHeroesListContent(heroList);
+
+	listConteiner.className = "heroes-list row justify-content-between";
+	listConteiner.innerHTML = listContent;
+
+	document.body.insertBefore(listConteiner, document.body.children[1]);
+};
+
+const filterByName = (heroes, value) => heroes.filter(({ heroName }) => {
+	return heroName.startsWith(value);
 });
-b.innerHTML = a;
-document.body.insertBefore(b, document.body.children[1]);
-//document.querySelector(".row").appendChild(a);
-console.log(a);
+
+const filterHeroesByInput = (heroes, inputValue) => heroes.filter(({ heroName }) => {
+	const lcHeroName = heroName.toLowerCase();
+	const lcInputValue = inputValue.toLowerCase();
+	
+	return lcHeroName.startsWith(lcInputValue);
+});
+
+const generateHeroesListContent = (heroes) => heroes.reduce((acc, el) => {
+	acc += `<div class="elem col-md-4 col-sm-6 d-flex"><img src="${ el.url }"><div class='d-flex flex-column'><span class="heroName align-items-start">${ el.heroName }</span><span class="align-items-end heroPosition">${el.heroPosition}</span></div></div>`;
+	
+	return acc;
+}, "");
+
+
+createListBlock();
+
+const input = document.getElementById('search');
+const choise = document.getElementsByClassName('dropdown-menu')[0];
+
+choise.addEventListener('click', function(event){
+	if(event.target.classList.contains('dropdown-item')){
+		valueEvent = event.target.innerText;
+	}
+	const filteredList = filterByName(heroList, valueEvent);
+	const newListContent = generateHeroesListContent(filteredList);
+	const list = document.getElementsByClassName('heroes-list')[0];
+	list.innerHTML = newListContent;
+});
+
+input.addEventListener('input', (event) => {
+	const { value } = event.target;
+	const filteredList = filterHeroesByInput(heroList, value);
+	const newListContent = generateHeroesListContent(filteredList);
+	const list = document.getElementsByClassName('heroes-list')[0];
+	list.innerHTML = newListContent;
+});
