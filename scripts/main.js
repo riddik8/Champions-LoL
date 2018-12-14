@@ -1,115 +1,116 @@
-const heroList = [
+const champions = [
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Aatrox.png",
-		heroName: "Aatrox",
-		heroPosition: "Top, Middle, Jungle"
+		name: "Aatrox",
+		position: "Top, Middle, Jungle"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Akali.png",
-		heroName: "Akali",
-		heroPosition: "Middle, Top"
+		name: "Akali",
+		position: "Middle, Top"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Darius.png",
-		heroName: "Darius",
-		heroPosition: "Top"
+		name: "Darius",
+		position: "Top"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Garen.png",
-		heroName: "Garen",
-		heroPosition: "Top"
+		name: "Garen",
+		position: "Top"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Irelia.png",
-		heroName: "Irelia",
-		heroPosition: "Top, Middle"
+		name: "Irelia",
+		position: "Top, Middle"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Jax.png",
-		heroName: "Jax",
-		heroPosition: "Top, Jungle"
+		name: "Jax",
+		position: "Top, Jungle"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Katarina.png",
-		heroName: "Katarina",
-		heroPosition: "Middle"
+		name: "Katarina",
+		position: "Middle"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Pantheon.png",
-		heroName: "Pantheon",
+		name: "Pantheon",
 		heroPosition: "Jungle, Top"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Renekton.png",
-		heroName: "Renekton",
-		heroPosition: "Top"
+		name: "Renekton",
+		position: "Top"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Rengar.png",
-		heroName: "Rengar",
-		heroPosition: "Jungle, Top"
+		name: "Rengar",
+		position: "Jungle, Top"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Shen.png",
-		heroName: "Shen",
-		heroPosition: "Top, Support"
+		name: "Shen",
+		position: "Top, Support"
 	},
 	{
 		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Sion.png",
-		heroName: "Sion",
-		heroPosition: "Top, Support"
+		name: "Sion",
+		position: "Top, Support"
 	}
 ];
 
-let valueEvent;
-
 const createListBlock = () => {
-	const listConteiner = document.createElement('div');
-	const listContent = generateHeroesListContent(heroList);
+	const mainContainer = document.createElement('div');
+	mainContainer.className = "container";
+	const listContainer = document.createElement('div');
+	const listContent = generateHeroesListContent(champions);
 
-	listConteiner.className = "heroes-list row justify-content-between";
-	listConteiner.innerHTML = listContent;
-
-	document.body.insertBefore(listConteiner, document.body.children[1]);
+	listContainer.className = "heroes-list row justify-content-between";
+	listContainer.innerHTML = listContent;
+	mainContainer.appendChild(listContainer);
+	document.querySelector("main").appendChild(mainContainer);
 };
 
-const filterByName = (heroes, value) => heroes.filter(({ heroName }) => {
-	return heroName.startsWith(value);
-});
-
-const filterHeroesByInput = (heroes, inputValue) => heroes.filter(({ heroName }) => {
-	const lcHeroName = heroName.toLowerCase();
+const filterHeroesByInput = (heroes, inputValue) => heroes.filter(({ name }) => {
+	const championName = name.toLowerCase();
 	const lcInputValue = inputValue.toLowerCase();
 	
-	return lcHeroName.startsWith(lcInputValue);
+	return championName.includes(lcInputValue);
 });
 
 const generateHeroesListContent = (heroes) => heroes.reduce((acc, el) => {
-	acc += `<div class="elem col-md-4 col-sm-6 d-flex"><img src="${ el.url }"><div class='d-flex flex-column'><span class="heroName align-items-start">${ el.heroName }</span><span class="align-items-end heroPosition">${el.heroPosition}</span></div></div>`;
-	
+	acc += `<div class="elem col-md-4 col-sm-6 d-flex"><img src="${el.url}">
+				<div class='d-flex flex-column'>
+					<span class="hero-name align-items-start">
+						${el.name}
+					</span>
+					<span class="align-items-end hero-position">
+						${el.position}
+					</span>
+				</div>
+			</div>`;
 	return acc;
 }, "");
 
 
 createListBlock();
 
-const input = document.getElementById('search');
-const choise = document.getElementsByClassName('dropdown-menu')[0];
+const input = document.querySelector('#search');
+const choise = document.querySelector('.championsDropdown');
 
-choise.addEventListener('click', function(event){
-	if(event.target.classList.contains('dropdown-item')){
-		valueEvent = event.target.innerText;
-	}
-	const filteredList = filterByName(heroList, valueEvent);
+choise.addEventListener('click', (event) => {
+	let valueEvent = event.target.classList.contains('dropdown-item') ? event.target.getAttribute('data-champion-name') : "";
+	const filteredList = filterHeroesByInput(champions, valueEvent);
 	const newListContent = generateHeroesListContent(filteredList);
-	const list = document.getElementsByClassName('heroes-list')[0];
+	const list = document.querySelector('.heroes-list');
 	list.innerHTML = newListContent;
 });
 
 input.addEventListener('input', (event) => {
-	const { value } = event.target;
-	const filteredList = filterHeroesByInput(heroList, value);
+	const filteredList = filterHeroesByInput(champions, event.target.value);
 	const newListContent = generateHeroesListContent(filteredList);
-	const list = document.getElementsByClassName('heroes-list')[0];
+	const list = document.querySelector('.heroes-list');
 	list.innerHTML = newListContent;
 });

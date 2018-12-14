@@ -8,10 +8,10 @@
 	margin: 10px 0 10px;
 	height: 120px;
 }
-.heroName{
+.hero-name{
 	font: bold 23px 'ARIAL BLACK';
 }
-.heroPosition{
+.hero-position{
 	font: 16px 'Segoe print';
 }
 .page-footer{
