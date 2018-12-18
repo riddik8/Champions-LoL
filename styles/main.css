@@ -4,9 +4,39 @@
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255,255,255,0.75) !important;
 }
+.navbar{
+	background-color: #002a32;
+}
+.navbar-nav .dropdown-menu {
+	background-color: #002a32;
+}
+.container{
+	background-color: #0a1827;
+}
+.dropdown-item{
+	color: rgba(255,255,255,0.75) !important;
+}
+.dropdown-item:focus, .dropdown-item:hover{
+	background-color: rgba(0,0,0,0.2);
+	color: rgba(255,255,255,1) !important;
+}
+.logo{
+	width: 32px;
+	height: 30px;
+}
+.logo-footer{
+	width: 104px;
+	height: 40px;
+}
 .elem{
-	margin: 10px 0 10px;
+	margin: 12px 0 12px;
+	padding: 4px 15px;
 	height: 120px;
+	color: #d5d4d4;
+	border-radius: 5px;
+}
+.elem:hover{
+	box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.4);
 }
 .hero-name{
 	font: bold 23px 'ARIAL BLACK';
@@ -15,6 +45,7 @@
 	font: 16px 'Segoe print';
 }
 .page-footer{
+	background-color: #002a32;
 	color: #fff !important;
 }
 .footer-copyright a{
@@ -24,5 +55,102 @@
 	color: rgba(255,255,255,1) !important;
 }
 .heroes-list{
-	min-height: calc(100vh - 129px);
+	min-height: calc(100vh - 130px);
+}
+#exampleModalLongTitle span{
+	margin-right: 11px;
+}
+.close{
+	color: #fff !important;
+	outline: none !important;
+}
+.championImg{
+	cursor: pointer;
+	margin-right: 10px;
+}
+main{
+	background-image: url(../images/LoL_battle.jpg);
+	background-size: cover;
+}
+.background-1{
+	background-image: url(../images/aatrox.jpg);
+	background-size: cover;
+	color: #fff;
+    background-position: -174px 0px;
+}
+.background-2{
+	background-image: url(../images/akali.jpg);
+	background-size: cover;
+	color: #fff;
+	background-position: 0px 0px;
+}
+.background-3{
+	background-image: url(../images/darius.jpg);
+	background-size: cover;
+	color: #fff;
+}
+.background-4{
+	background-image: url(../images/garen.jpg);
+	background-size: cover;
+	color: #fff;
+	background-position: -256px 0px;
+}
+.background-5{
+	background-image: url(../images/irelia.jpg);
+	background-size: cover;
+	color: #fff;
+	background-position: -74px 0px;
+}
+.background-6{
+	background-image: url(../images/jax.jpg);
+	background-size: cover;
+	color: #fff;
+	background-position: -150px 0px;
+}
+.background-7{
+	background-image: url(../images/katarina.jpg);
+	background-size: cover;
+	color: #fff;
+	background-position: -54px 0px;
+}
+.background-8{
+	background-image: url(../images/pantheon.jpg);
+	background-size: cover;
+	color: #fff;
+	background-position: -120px 0px;
+}
+.background-9{
+	background-image: url(../images/renekton.jpg);
+	background-size: cover;
+	color: #fff;
+	background-position: -91px 0px;
+}
+.background-10{
+	background-image: url(../images/rengar.jpg);
+	background-size: cover;
+	color: #fff;
+	background-position: -160px 0px;
+}
+.background-11{
+	background-image: url(../images/shen.jpg);
+	background-size: cover;
+	color: #fff;
+	background-position: -145px 0px;
+}
+.background-12{
+	background-image: url(../images/sion.jpg);
+	background-size: cover;
+	color: #fff;
+	background-position: -181px 0px;
+}
+.modal-footer{
+	color: #fff;
+	background-color: #0a1827;
+}
+.modal-footer .modal-header{
+	padding: 0;
+}
+.modal-footer img{
+	height: 64px;
+	margin-right: 5px;
 }
