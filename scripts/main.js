@@ -316,7 +316,7 @@ const createListBlock = () => {
 const filterHeroesByInput = (heroes, inputValue) => heroes.filter(({ name }) => {
 	const championName = name.toLowerCase();
 	const lcInputValue = inputValue.toLowerCase();
-	return inputValue ? championName.includes(lcInputValue) : name === heroes;
+	return championName.includes(lcInputValue);
 });
 
 const generateHeroesListContent = (heroes) => heroes.reduce((acc, el) => {
@@ -340,17 +340,21 @@ const input = document.querySelector('#search');
 const choise = document.querySelector('.champions-dropdown');
 
 choise.addEventListener('click', (event) => {
-	let valueEvent = event.target.classList.contains('dropdown-item') ? event.target.dataset.champion : "";
-	const list = document.querySelector('.heroes-list');
-	if(event.target.dataset.champion === "All_champions"){
+    if (!event.target.classList.contains('dropdown-item')) {
+        return;
+    }
+	const { champion } = event.target.dataset;
+    const list = document.querySelector('.heroes-list');
+    
+	if (champion === "All_champions"){
 		const newListContent = generateHeroesListContent(champions);
 		list.innerHTML = newListContent;
 		input.value = "";
 	} else {
-		const filteredList = filterHeroesByInput(champions, valueEvent);
+		const filteredList = filterHeroesByInput(champions, champion);
 		const newListContent = generateHeroesListContent(filteredList);
 		list.innerHTML = newListContent;
-		input.value = event.target.dataset.champion;
+		input.value = champion;
 	}
 	renderModal();
 });
