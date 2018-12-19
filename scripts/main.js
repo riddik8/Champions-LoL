@@ -1,6 +1,6 @@
 const champions = [
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Aatrox.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Aatrox.png?image=w_140&v=15354684000",
 		name: "Aatrox",
 		id: "1",
 		position: "Top, Middle, Jungle",
@@ -25,7 +25,7 @@ const champions = [
 		abilityRDescription: "ACTIVE: After 0.5 seconds, Aatrox unleashes his true demonic form for 10 seconds, fearing nearby allied and enemy minions for 3 seconds, and for the first second gaining bonus movement speed.<br>While transformed Aatrox gains increased size and bonus attack damage, refreshing the bonus movement speed when out-of-combat with champions and turrets.<br>Aatrox generates Blood Well equal to 15% − 50% (based on duration) of his maximum health over the duration. Taking lethal damage during World Ender revives Aatrox over 3.25 seconds, during which he is untargetable, pacified and slowed by 25% and consumes the Blood Well to recover the same amount in health. While reviving, The Darkin Blade's recast timer is locked."
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Akali.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Akali.png?image=w_140&v=15354684000",
 		name: "Akali",
 		id: "2",
 		position: "Middle, Top",
@@ -50,7 +50,7 @@ const champions = [
 		abilityRDescription: "FIRST ACTIVE: Akali dashes in the target direction, dealing physical damage and stunning enemies hit for 0.5 seconds. After 2.5 seconds, Perfect Execution can be reactivated within the following 7.5 seconds.<br> SECOND ACTIVE: Akali dashes in the target direction, dealing magic damage to enemies hit, increasing by 0% − 200% (based on target's missing health)."
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Darius.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Darius.png?image=w_140&v=15354684000",
 		name: "Darius",
 		id: "3",
 		position: "Top",
@@ -75,7 +75,7 @@ const champions = [
 		abilityRDescription: "ACTIVE: After leaping unstoppably for 0.25 seconds, Darius attempts to execute the targeted enemy champion, dealing true damage, increased by 0% − 100% (based on hemorrhage stacks).<br>If Noxian Guillotine kills its target, Darius causes all nearby minions and monsters to flee in terror for 3 seconds during which they are rapidly slowed by up to 99% over the duration, and is able to recast the ability within the next 20 seconds at no additional cost. This can occur multiple times in succession.<br>At rank 3, if Noxian Guillotine kills its target, its cooldown resets completely."
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Garen.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Garen.png?image=w_140&v=15354684000",
 		name: "Garen",
 		id: "4",
 		position: "Top",
@@ -100,7 +100,7 @@ const champions = [
 		abilityRDescription: "PASSIVE: The enemy with the most kills in the last 5 minutes is marked as the Villain. The mark cannot be assigned to another champion while Garen is in combat with the Villain. If more than one enemy has the same bounty, the enemy who received it first is marked the Villain.<br>Garen's basic attacks and each spin of Judgment against the Villain deal 1% of their maximum health as bonus true damage on-hit.<br>ACTIVE: Garen calls upon the might of Demacia to attempt to execute the target enemy champion, dealing them magic damage, converted to true damage when targeting the Villain."
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Irelia.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Irelia.png?image=w_140&v=15354684000",
 		name: "Irelia",
 		id: "5",
 		position: "Top, Middle",
@@ -125,7 +125,7 @@ const champions = [
 		abilityRDescription: "ACTIVE: Irelia launches a barrage of blades through a wide line in the target direction, exploding outwards upon hitting a champion, dealing magic damage to all enemies struck.<br>The blades form into a spade-shaped perimeter around the explosion for a few seconds, knocking aside all enemies, though not rendering them airborne. Enemies that pass through the blades are dealt magic damage, and are disarmed while being slowed by 60% for 1.5 seconds."
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Jax.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Jax.png?image=w_140&v=15354684000",
 		name: "Jax",
 		id: "6",
 		position: "Top, Jungle",
@@ -150,7 +150,7 @@ const champions = [
 		abilityRDescription: "PASSIVE: Jax deals bonus magic damage on every third basic attack within 2.5 seconds of each other.<br>ACTIVE - THE CHAMP: Jax gains bonus armor and bonus magic resistance for 8 seconds."
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Katarina.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Katarina.png?image=w_140&v=15354684000",
 		name: "Katarina",
 		id: "7",
 		position: "Middle",
@@ -175,7 +175,7 @@ const champions = [
 		abilityRDescription: "ACTIVE: Katarina rapidly spins in place for 2.5 seconds, throwing a dagger every 0.166 seconds to up to 3 nearby enemy champions, dealing magic damage and applying Grievous Wounds for 3 seconds.<br>Death Lotus cannot be cancelled by movement and basic attack commands in the first and last 0.25 seconds of channeling."
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Pantheon.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Pantheon.png?image=w_140&v=15354684000",
 		name: "Pantheon",
 		id: "8",
 		position: "Jungle, Top",
@@ -200,7 +200,7 @@ const champions = [
 		abilityRDescription: "ACTIVE: Pantheon begins channeling and, after 2 seconds, leaps into the air and becomes untargetable. He then blinks to the target location and plummets down, striking after 2 seconds and becoming targetable once more.<br>Enemies within the impact zone take magic damage, increased by up to 100% based on their proximity to the epicenter, and are slowed by 35% for 1 second.<br>Grand Skyfall's cooldown is reduced to 30 seconds if the channel is interrupted or canceled."
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Renekton.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Renekton.png?image=w_140&v=15354684000",
 		name: "Renekton",
 		id: "9",
 		position: "Top",
@@ -225,7 +225,7 @@ const champions = [
 		abilityRDescription: "ACTIVE: Renekton empowers himself for 15 seconds, gaining bonus health, increased size, 25 bonus range and 20 Fury.<br>For the duration, he deals magic damage each half second to all nearby enemies and generates 5 Fury per second (total 75)"
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Rengar.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Rengar.png?image=w_140&v=15354684000",
 		name: "Rengar",
 		id: "10",
 		position: "Jungle, Top",
@@ -250,7 +250,7 @@ const champions = [
 		abilityRDescription: "ACTIVE: Rengar channels his predatory instincts, becoming camouflaged after 2 seconds and gaining bonus movement speed for the duration. Attacking or casting most spells ends Thrill of the Hunt.<br>Rengar gains true sight of the nearest enemy champion, who he can leap to deal 50% AD bonus physical damage and reduce their armor for 4 seconds.<br>The nearest enemy champion to Rengar alerts all allies within 1200 range about his presence."
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Shen.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Shen.png?image=w_140&v=15354684000",
 		name: "Shen",
 		id: "11",
 		position: "Top, Support",
@@ -275,7 +275,7 @@ const champions = [
 		abilityRDescription: "ACTIVE: Shen channels for 3 seconds, shielding the target allied champion for up to 5 seconds, increased by 0% − 60% (based on target's missing health).<br>Upon completing the channel, Shen and his Spirit Blade blink to the target ally's location."
 	},
 	{
-		url: "https://ddragon.leagueoflegends.com/cdn/8.24.1/img/champion/Sion.png",
+		url: "http://opgg-static.akamaized.net/images/lol/champion/Sion.png?image=w_140&v=15354684000",
 		name: "Sion",
 		id: "12",
 		position: "Top, Support",
@@ -310,19 +310,18 @@ const createListBlock = () => {
 	listContainer.className = "heroes-list row justify-content-between";
 	listContainer.innerHTML = listContent;
 	mainContainer.appendChild(listContainer);
-	document.querySelector("main").appendChild(mainContainer);
+	document.querySelector("#main").appendChild(mainContainer);
 };
 
 const filterHeroesByInput = (heroes, inputValue) => heroes.filter(({ name }) => {
 	const championName = name.toLowerCase();
 	const lcInputValue = inputValue.toLowerCase();
-	
-	return championName.includes(lcInputValue);
+	return inputValue ? championName.includes(lcInputValue) : name === heroes;
 });
 
 const generateHeroesListContent = (heroes) => heroes.reduce((acc, el) => {
 	acc += `<div class="elem col-md-4 col-sm-6 d-flex">
-				<img class="championImg" src="${el.url}" data-name="${el.name}" data-toggle="modal" data-target="#infoModal">
+				<img class="champion-img" src="${el.url}" data-name="${el.name}" data-toggle="modal" data-target="#infoModal">
 				<div class='d-flex flex-column'>
 					<span class="hero-name align-items-start">
 						${el.name}
@@ -335,27 +334,25 @@ const generateHeroesListContent = (heroes) => heroes.reduce((acc, el) => {
 	return acc;
 }, "");
 
-const modalInfo = (heroes) => 
-	champions.filter(({ name }) => name === heroes);
-
 createListBlock();
 
 const input = document.querySelector('#search');
-const choise = document.querySelector('.championsDropdown');
+const choise = document.querySelector('.champions-dropdown');
 
 choise.addEventListener('click', (event) => {
-	let valueEvent = event.target.classList.contains('dropdown-item') ? event.target.getAttribute('data-champion-name') : "";
-	if(event.target.getAttribute('data-champion-name') === "champions"){
+	let valueEvent = event.target.classList.contains('dropdown-item') ? event.target.dataset.champion : "";
+	const list = document.querySelector('.heroes-list');
+	if(event.target.dataset.champion === "All_champions"){
 		const newListContent = generateHeroesListContent(champions);
-		const list = document.querySelector('.heroes-list');
 		list.innerHTML = newListContent;
+		input.value = "";
 	} else {
 		const filteredList = filterHeroesByInput(champions, valueEvent);
 		const newListContent = generateHeroesListContent(filteredList);
-		const list = document.querySelector('.heroes-list');
 		list.innerHTML = newListContent;
-	return renderModal();
+		input.value = event.target.dataset.champion;
 	}
+	renderModal();
 });
 
 input.addEventListener('input', (event) => {
@@ -369,8 +366,8 @@ input.addEventListener('input', (event) => {
 renderModal();
 
 function renderModal(){
-	document.querySelectorAll('.championImg').forEach((el) => el.addEventListener('click', (event) => {
-		const championsAttribute = modalInfo(event.target.getAttribute('data-name'))[0];
+	document.querySelectorAll('.champion-img').forEach((el) => el.addEventListener('click', (event) => {
+		const championsAttribute = filterHeroesByInput(champions,event.target.dataset.name)[0];
 		document.querySelector('#infoModal').innerHTML = 
 			`<div class="modal-dialog" role="document">
 			    <div class="modal-content">

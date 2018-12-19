@@ -30,13 +30,13 @@
 }
 .elem{
 	margin: 12px 0 12px;
-	padding: 4px 15px;
 	height: 120px;
 	color: #d5d4d4;
-	border-radius: 5px;
 }
-.elem:hover{
-	box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.4);
+.champion-img:hover{
+	box-shadow: 0px 0px 15px 7px rgba(0, 0, 0, 0.4);
+	transform: scale(1.1);
+	border-radius: 8px;
 }
 .hero-name{
 	font: bold 23px 'ARIAL BLACK';
@@ -64,7 +64,9 @@
 	color: #fff !important;
 	outline: none !important;
 }
-.championImg{
+.champion-img{
+	width: 120px;
+	height: 120px;
 	cursor: pointer;
 	margin-right: 10px;
 }
