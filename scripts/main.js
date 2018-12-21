@@ -338,109 +338,104 @@ createListBlock();
 
 const input = document.querySelector('#search');
 const choise = document.querySelector('.champions-dropdown');
+const heroList = document.querySelector('.heroes-list');
+
+function showChamp(champion){
+	const list = document.querySelector('.heroes-list');
+	const filteredList = filterHeroesByInput(champions, champion);
+	const newListContent = generateHeroesListContent(champion === "All_champions" ? champions : filteredList);
+	champion === "All_champions" ? input.value = "" : input.value = champion;
+	list.innerHTML = newListContent;
+}
+
+function modalTemplate(championsAttribute){
+	return `<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    	<div class="background-${championsAttribute.id}">
+		    	<div class="modal-header">
+		        	<h5 class="modal-title" id="exampleModalLongTitle">
+		        		<img src="${championsAttribute.modalTitleIcon}">
+		        		<span class="hero-name">${championsAttribute.name}</span>${championsAttribute.modalTitleMoniker}
+		        	</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		        		<span aria-hidden="true">&times;</span>
+		        	</button>
+		    	</div>
+		    	<div class="modal-body">
+		      		<blockquote class="blockquote text-right">
+	  					<p class="mb-0">${championsAttribute.quote}</p>
+	  					<footer class="blockquote-footer text-light"><cite title="Source Title">${championsAttribute.name}</cite></footer>
+					</blockquote>
+		      		${championsAttribute.biography}
+		    	</div>
+		    	</div>
+		    	<div class="modal-footer flex-column">
+		        	<div>
+		        		<div class="modal-header">
+		        			<h5>${championsAttribute.passiveTitle} (passive)</h5>
+		        		</div>
+		        		<div class="d-flex">
+		        			<img src="${championsAttribute.passiveImg}">
+		        			<p>${championsAttribute.passiveDescription}</p>
+		        		</div>
+		        	</div>
+					<div>
+		        		<div class="modal-header">
+		        			<h5>${championsAttribute.abilityQTitle}</h5>
+		        		</div>
+		        		<div class="d-flex">
+		        			<img src="${championsAttribute.abilityQImg}">
+		        			<p>${championsAttribute.abilityQDescription}</p>
+		        		</div>
+		        	</div>
+		        	<div>
+		        		<div class="modal-header">
+		        			<h5>${championsAttribute.abilityWTitle}</h5>
+		        		</div>
+		        		<div class="d-flex">
+		        			<img src="${championsAttribute.abilityWImg}">
+		        			<p>${championsAttribute.abilityWDescription}</p>
+		        		</div>
+		        	</div>
+		        	<div>
+		        		<div class="modal-header">
+		        			<h5>${championsAttribute.abilityETitle}</h5>
+		        		</div>
+		        		<div class="d-flex">
+		        			<img src="${championsAttribute.abilityEImg}">
+		        			<p>${championsAttribute.abilityEDescription}</p>
+		        		</div>
+		        	</div>
+		        	<div>
+		        		<div class="modal-header">
+		        			<h5>${championsAttribute.abilityRTitle}</h5>
+		        		</div>
+		        		<div class="d-flex">
+		        			<img src="${championsAttribute.abilityRImg}">
+		        			<p>${championsAttribute.abilityRDescription}</p>
+		        		</div>
+		        	</div>
+		    	</div>
+		    </div>
+		</div>`;
+} 
 
 choise.addEventListener('click', (event) => {
     if (!event.target.classList.contains('dropdown-item')) {
         return;
     }
 	const { champion } = event.target.dataset;
-    const list = document.querySelector('.heroes-list');
-    
-	if (champion === "All_champions"){
-		const newListContent = generateHeroesListContent(champions);
-		list.innerHTML = newListContent;
-		input.value = "";
-	} else {
-		const filteredList = filterHeroesByInput(champions, champion);
-		const newListContent = generateHeroesListContent(filteredList);
-		list.innerHTML = newListContent;
-		input.value = champion;
-	}
-	renderModal();
+	showChamp(champion);
 });
 
 input.addEventListener('input', (event) => {
-	const filteredList = filterHeroesByInput(champions, event.target.value);
-	const newListContent = generateHeroesListContent(filteredList);
-	const list = document.querySelector('.heroes-list');
-	list.innerHTML = newListContent;
-	renderModal();
+	showChamp(event.target.value);
 });
 
-renderModal();
-
-function renderModal(){
-	document.querySelectorAll('.champion-img').forEach((el) => el.addEventListener('click', (event) => {
-		const championsAttribute = filterHeroesByInput(champions,event.target.dataset.name)[0];
-		document.querySelector('#infoModal').innerHTML = 
-			`<div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			    	<div class="background-${championsAttribute.id}">
-			    	<div class="modal-header">
-			        	<h5 class="modal-title" id="exampleModalLongTitle">
-			        		<img src="${championsAttribute.modalTitleIcon}">
-			        		<span class="hero-name">${championsAttribute.name}</span>${championsAttribute.modalTitleMoniker}
-			        	</h5>
-			        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			        		<span aria-hidden="true">&times;</span>
-			        	</button>
-			    	</div>
-			    	<div class="modal-body">
-			      		<blockquote class="blockquote text-right">
-		  					<p class="mb-0">${championsAttribute.quote}</p>
-		  					<footer class="blockquote-footer text-light"><cite title="Source Title">${championsAttribute.name}</cite></footer>
-						</blockquote>
-			      		${championsAttribute.biography}
-			    	</div>
-			    	</div>
-			    	<div class="modal-footer flex-column">
-			        	<div>
-			        		<div class="modal-header">
-			        			<h5>${championsAttribute.passiveTitle} (passive)</h5>
-			        		</div>
-			        		<div class="d-flex">
-			        			<img src="${championsAttribute.passiveImg}">
-			        			<p>${championsAttribute.passiveDescription}</p>
-			        		</div>
-			        	</div>
-						<div>
-			        		<div class="modal-header">
-			        			<h5>${championsAttribute.abilityQTitle}</h5>
-			        		</div>
-			        		<div class="d-flex">
-			        			<img src="${championsAttribute.abilityQImg}">
-			        			<p>${championsAttribute.abilityQDescription}</p>
-			        		</div>
-			        	</div>
-			        	<div>
-			        		<div class="modal-header">
-			        			<h5>${championsAttribute.abilityWTitle}</h5>
-			        		</div>
-			        		<div class="d-flex">
-			        			<img src="${championsAttribute.abilityWImg}">
-			        			<p>${championsAttribute.abilityWDescription}</p>
-			        		</div>
-			        	</div>
-			        	<div>
-			        		<div class="modal-header">
-			        			<h5>${championsAttribute.abilityETitle}</h5>
-			        		</div>
-			        		<div class="d-flex">
-			        			<img src="${championsAttribute.abilityEImg}">
-			        			<p>${championsAttribute.abilityEDescription}</p>
-			        		</div>
-			        	</div>
-			        	<div>
-			        		<div class="modal-header">
-			        			<h5>${championsAttribute.abilityRTitle}</h5>
-			        		</div>
-			        		<div class="d-flex">
-			        			<img src="${championsAttribute.abilityRImg}">
-			        			<p>${championsAttribute.abilityRDescription}</p>
-			        		</div>
-			        	</div>
-			    	</div>
-			    </div>
-			</div>`	
-	}))
-}
+heroList.addEventListener('click', (event) => {
+	if(!event.target.dataset.name){
+		return;
+	}
+	const championsAttribute = filterHeroesByInput(champions, event.target.dataset.name)[0];
+	document.querySelector('#infoModal').innerHTML = modalTemplate(championsAttribute);
+})
