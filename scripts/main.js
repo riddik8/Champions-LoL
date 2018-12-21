@@ -301,54 +301,7 @@ const champions = [
 	}
 ];
 
-const createListBlock = () => {
-	const mainContainer = document.createElement('div');
-	mainContainer.className = "container";
-	const listContainer = document.createElement('div');
-	const listContent = generateHeroesListContent(champions);
-
-	listContainer.className = "heroes-list row justify-content-between";
-	listContainer.innerHTML = listContent;
-	mainContainer.appendChild(listContainer);
-	document.querySelector("#main").appendChild(mainContainer);
-};
-
-const filterHeroesByInput = (heroes, inputValue) => heroes.filter(({ name }) => {
-	const championName = name.toLowerCase();
-	const lcInputValue = inputValue.toLowerCase();
-	return championName.includes(lcInputValue);
-});
-
-const generateHeroesListContent = (heroes) => heroes.reduce((acc, el) => {
-	acc += `<div class="elem col-md-4 col-sm-6 d-flex">
-				<img class="champion-img" src="${el.url}" data-name="${el.name}" data-toggle="modal" data-target="#infoModal">
-				<div class='d-flex flex-column'>
-					<span class="hero-name align-items-start">
-						${el.name}
-					</span>
-					<span class="align-items-end hero-position">
-						${el.position}
-					</span>
-				</div>
-			</div>`;
-	return acc;
-}, "");
-
-createListBlock();
-
-const input = document.querySelector('#search');
-const choise = document.querySelector('.champions-dropdown');
-const heroList = document.querySelector('.heroes-list');
-
-function showChamp(champion){
-	const list = document.querySelector('.heroes-list');
-	const filteredList = filterHeroesByInput(champions, champion);
-	const newListContent = generateHeroesListContent(champion === "All_champions" ? champions : filteredList);
-	champion === "All_champions" ? input.value = "" : input.value = champion;
-	list.innerHTML = newListContent;
-}
-
-function modalTemplate(championsAttribute){
+const modalTemplate = (championsAttribute) => {
 	return `<div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		    	<div class="background-${championsAttribute.id}">
@@ -420,22 +373,70 @@ function modalTemplate(championsAttribute){
 		</div>`;
 } 
 
+const generateHeroesListContent = (heroes) => heroes.reduce((acc, el) => {
+	acc += `<div class="elem col-md-4 col-sm-6 d-flex">
+				<img class="champion-img" src="${el.url}" data-name="${el.name}" data-toggle="modal" data-target="#infoModal">
+				<div class='d-flex flex-column'>
+					<span class="hero-name align-items-start">
+						${el.name}
+					</span>
+					<span class="align-items-end hero-position">
+						${el.position}
+					</span>
+				</div>
+			</div>`;
+	return acc;
+}, "");
+
+const createListBlock = () => {
+	const mainContainer = document.createElement('div');
+	mainContainer.className = "container";
+	const listContainer = document.createElement('div');
+	const listContent = generateHeroesListContent(champions);
+
+	listContainer.className = "heroes-list row justify-content-between";
+	listContainer.innerHTML = listContent;
+	mainContainer.appendChild(listContainer);
+	document.querySelector("#main").appendChild(mainContainer);
+};
+
+const filterHeroesByInput = (heroes, inputValue) => heroes.filter(({ name }) => {
+	const championName = name.toLowerCase();
+	const lcInputValue = inputValue.toLowerCase();
+	return championName.includes(lcInputValue);
+});
+
+const renderChampionList = (champion) => {
+	const list = document.querySelector('.heroes-list');
+	const filteredList = filterHeroesByInput(champions, champion);
+	const newListContent = generateHeroesListContent(champion === "All_champions" ? champions : filteredList);
+	input.value = champion === "All_champions" ?  "" : champion;
+	list.innerHTML = newListContent;
+}
+
+createListBlock();
+
+const input = document.querySelector('#search');
+const choise = document.querySelector('.champions-dropdown');
+const heroList = document.querySelector('.heroes-list');
+
 choise.addEventListener('click', (event) => {
     if (!event.target.classList.contains('dropdown-item')) {
         return;
     }
 	const { champion } = event.target.dataset;
-	showChamp(champion);
+	renderChampionList(champion);
 });
 
 input.addEventListener('input', (event) => {
-	showChamp(event.target.value);
+	renderChampionList(event.target.value);
 });
 
 heroList.addEventListener('click', (event) => {
-	if(!event.target.dataset.name){
+	const { name } = event.target.dataset;
+	if(!name){
 		return;
 	}
-	const championsAttribute = filterHeroesByInput(champions, event.target.dataset.name)[0];
+	const championsAttribute = filterHeroesByInput(champions, name)[0];
 	document.querySelector('#infoModal').innerHTML = modalTemplate(championsAttribute);
 })
